@@ -13,7 +13,7 @@ class FlutterLinux < Formula
   
     def install
       puts "\n📡 Retrieving latest release...\n\n"
-      releases_json = `curl -A "Flutter-macos SDK Homebrew" https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json`
+      releases_json = `curl -A "Flutter-linux SDK Homebrew" https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json`
       data = JSON.parse releases_json
 
       channel = nil
@@ -41,7 +41,7 @@ class FlutterLinux < Formula
       end
   
       puts "\n🎯 Found version #{channel} - #{result["version"]} - downloading...\n\n"
-      `curl -A "Flutter-macos SDK Homebrew" #{base_url}/#{result["archive"]} -L -o flutter.zip`
+      `curl -A "Flutter-linux SDK Homebrew" #{base_url}/#{result["archive"]} -L -o flutter.zip`
   
       puts "\n📦 Unpacking files...\n\n"
       `tar --strip-components=1 -xvf flutter.zip`
@@ -54,7 +54,7 @@ class FlutterLinux < Formula
     def post_install
       puts "\n👮‍ Updating cache folder permissions..."
       chmod "u+rw", Dir["#{prefix}/bin/cache/", "#{prefix}/bin/cache/*"]
-      puts "\n🎉‍ Flutter-macos successfully installed! 👉 You may want to run flutter doctor to complete the Flutter-macos SDK setup.\n\n"
+      puts "\n🎉‍ Flutter-linux successfully installed! 👉 You may want to run flutter doctor to complete the Flutter-linux SDK setup.\n\n"
     end
   
     test do
