@@ -10,13 +10,13 @@ Afterwards you can simply use `flutter channel [master|dev|beta|stable]` to swit
 
 ### macOS
 ```
-brew tap flschweiger/flutter
+brew tap nikurasukun/flutter
 brew install flutter-macos
 ```
 
 ### Linux
 ```
-brew tap flschweiger/flutter
+brew tap nikurasukun/flutter
 brew install flutter-linux
 ```
 
