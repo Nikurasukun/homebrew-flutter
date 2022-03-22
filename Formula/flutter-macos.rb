@@ -1,7 +1,7 @@
 class FlutterMacOS < Formula
     desc "Google’s UI toolkit for mobile, web, and desktop from a single codebase"
     homepage "https://flutter.dev"
-    url "https://storage.googleapis.com/flutter_infra/releases/releases_macos.json"
+    url "https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json"
     version "sdk"
   
     require 'json'
@@ -13,7 +13,7 @@ class FlutterMacOS < Formula
   
     def install
       puts "\n📡 Retrieving latest release...\n\n"
-      releases_json = `curl -A "Flutter-macos SDK Homebrew" https://storage.googleapis.com/flutter_infra/releases/releases_macos.json`
+      releases_json = `curl -A "Flutter-macos SDK Homebrew" https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json`
       data = JSON.parse releases_json
 
       channel = nil
