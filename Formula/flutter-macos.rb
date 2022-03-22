@@ -1,4 +1,4 @@
-class Flutter < Formula
+class FlutterMacOS < Formula
     desc "Google’s UI toolkit for mobile, web, and desktop from a single codebase"
     homepage "https://flutter.dev"
     url "https://storage.googleapis.com/flutter_infra/releases/releases_macos.json"
@@ -13,7 +13,7 @@ class Flutter < Formula
   
     def install
       puts "\n📡 Retrieving latest release...\n\n"
-      releases_json = `curl -A "Flutter SDK Homebrew" https://storage.googleapis.com/flutter_infra/releases/releases_macos.json`
+      releases_json = `curl -A "Flutter-macos SDK Homebrew" https://storage.googleapis.com/flutter_infra/releases/releases_macos.json`
       data = JSON.parse releases_json
 
       channel = nil
@@ -41,7 +41,7 @@ class Flutter < Formula
       end
   
       puts "\n🎯 Found version #{channel} - #{result["version"]} - downloading...\n\n"
-      `curl -A "Flutter SDK Homebrew" #{base_url}/#{result["archive"]} -L -o flutter.zip`
+      `curl -A "Flutter-macos SDK Homebrew" #{base_url}/#{result["archive"]} -L -o flutter.zip`
   
       puts "\n📦 Unpacking files...\n\n"
       `bsdtar --strip-components=1 -xvf flutter.zip`
@@ -54,7 +54,7 @@ class Flutter < Formula
     def post_install
       puts "\n👮‍ Updating cache folder permissions..."
       chmod "u+rw", Dir["#{prefix}/bin/cache/", "#{prefix}/bin/cache/*"]
-      puts "\n🎉‍ Flutter successfully installed! 👉 You may want to run flutter doctor to complete the Flutter SDK setup.\n\n"
+      puts "\n🎉‍ Flutter-macos successfully installed! 👉 You may want to run flutter doctor to complete the Flutter-macos SDK setup.\n\n"
     end
   
     test do
